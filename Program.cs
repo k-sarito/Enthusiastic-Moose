@@ -1,8 +1,23 @@
 ﻿using System;
 
-Console.WriteLine("Welcome to the Enthusiastic Moose Simulator!");
-Console.WriteLine("--------------------------------------------");
-Console.WriteLine();
+Main();
+
+void Main()
+{
+    Console.WriteLine("Welcome to the Enthusiastic Moose Simulator!");
+    Console.WriteLine("--------------------------------------------");
+    Console.WriteLine();
+
+    // Let the moose speak!
+    MooseSays("H I, I'M  E N T H U S I A S T I C !");
+    MooseSays("I really am enthusiastic");
+
+    // As a question
+    CanadaQuestion();
+    EnthusiasticQuestion();
+    LoveCSharpQuestion();
+    SecretQuestion();
+}
 
 bool MooseAsks(string question)
 {
@@ -57,15 +72,38 @@ void MooseSays(string message)
     ");
 }
 
-MooseSays("H I, I'M  E N T H U S I A S T I C !");
-MooseSays("I really am enthusiastic");
 
-bool isTrue = MooseAsks("Is Canada real?");
-if (isTrue)
+void QuestionFormat(string question, string answer1, string answer2)
 {
-    MooseSays("Really? It seems very unlikely.");
+    bool isTrue = MooseAsks(question);
+    if (isTrue)
+    {
+        MooseSays(answer1);
+    }
+    else
+    {
+        MooseSays(answer2);
+    }
 }
-else
+
+
+
+void CanadaQuestion()
 {
-    MooseSays("I  K N E W  I T !!!");
+    QuestionFormat("Is Canada real?", "Really? It seems very unlikely.", "I  K N E W  I T !!!");
+}
+
+void EnthusiasticQuestion()
+{
+    QuestionFormat("Are you enthusiastic?", "Yay!", "You should try it!");
+}
+
+void LoveCSharpQuestion()
+{
+    QuestionFormat("Do you love C# yet?", "Good job sucking up to your instructor!", "You will...oh, yes, you will...");
+}
+
+void SecretQuestion()
+{
+    QuestionFormat("Do you want to know a secret?", "ME TOO!!!! I love secrets...tell me one!", "Oh, no...secrets are the best, I love to share them!");
 }
